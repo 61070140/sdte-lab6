@@ -1,18 +1,19 @@
 name: Check code when push
+
 on:
-push:
-branches:
+  push:
+    branches:
       - "main"
-pull_request:
-branches:
+  pull_request:
+    branches:
       - "main"
+
 jobs:
-check-code:
-name: Check code
-runs-on: ubuntu-latest
-steps:
+  check-code:
+    name: Check code
+    runs-on: ubuntu-latest
+    steps:
       - name: Checkout the repo
-uses: actions/checkout@v2
+        uses: actions/checkout@v2
       - run: npm install
-      - run: npm run prettier-check
-      - run: npm npm run test
+      - run: npm run ci
